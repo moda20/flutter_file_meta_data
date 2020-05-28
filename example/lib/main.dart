@@ -30,8 +30,8 @@ class _MyAppState extends State<MyApp> {
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-     List metadata = await FlutterFileMetaData.getFileMetaData("/storage/4208-7BE7/MUUSIC/2013.09 - Avril Lavigne [Deluxe Version]/02 Here's to Never Growing Up.mp3");
-      print(metadata);
+      //Input a file from your device
+     //List metadata = await FlutterFileMetaData.getFileMetaData("");//print(metadata);
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
