@@ -56,7 +56,6 @@ public class FlutterFileMetaDataPlugin implements FlutterPlugin, MethodCallHandl
       case "getFileMetadata":{
 
         String filepath = (String) arguments.get("filepath");
-        System.out.println(filepath);
         List l = new ArrayList();
         mmr.setDataSource(filepath);
         l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
