@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+Using MediaMetadataRetriever on Android to get the metaData
