@@ -3,6 +3,7 @@ package com.modatwenty.flutter_file_meta_data;
 import android.media.MediaMetadataRetriever;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -57,21 +58,28 @@ public class FlutterFileMetaDataPlugin implements FlutterPlugin, MethodCallHandl
 
         String filepath = (String) arguments.get("filepath");
         List l = new ArrayList();
-        mmr.setDataSource(filepath);
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
-        try {
-          l.add(mmr.getEmbeddedPicture());
-        } catch (Exception e) {
-          l.add("");
-        }
+        try{
+          mmr.setDataSource(filepath);
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
+          try {
+            byte[] pic = mmr.getEmbeddedPicture();
+            l.add(pic);
+          } catch (Exception e) {
+            l.add("");
+          }
 
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM));
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_CD_TRACK_NUMBER));
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE));
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_BITRATE));
-        l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_YEAR));
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM));
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_CD_TRACK_NUMBER));
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE));
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_BITRATE));
+          l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_YEAR));
+
+        } catch (Exception e) {
+          String[] arraysl= {null, null, null, null, null, null, null, null};
+          Collections.addAll(l,arraysl);
+        }
         result.success(l);
         break;
       }
