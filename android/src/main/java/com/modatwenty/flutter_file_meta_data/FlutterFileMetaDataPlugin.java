@@ -64,9 +64,13 @@ public class FlutterFileMetaDataPlugin implements FlutterPlugin, MethodCallHandl
           l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
           try {
             byte[] pic = mmr.getEmbeddedPicture();
-            l.add(pic);
+            if(pic==null){
+              l.add(null);
+            }else{
+              l.add(pic);
+            }
           } catch (Exception e) {
-            l.add("");
+            l.add(null);
           }
 
           l.add(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ALBUM));
@@ -83,8 +87,6 @@ public class FlutterFileMetaDataPlugin implements FlutterPlugin, MethodCallHandl
         result.success(l);
         break;
       }
-
-
       default:{
         result.notImplemented();
       }
