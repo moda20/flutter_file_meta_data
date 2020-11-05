@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/flutter_file_meta_data.iml" filepath="$PROJECT_DIR$/flutter_file_meta_data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_file_meta_data.iml" filepath="$PROJECT_DIR$/flutter_file_meta_data.iml" group="flutter_file_meta_data" />
     </modules>
   </component>
 </project>
