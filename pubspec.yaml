@@ -1,11 +1,11 @@
 name: flutter_file_meta_data
 description: A Flutter plugin that enables you to get fileMetadata on iOS and Android
-version: 0.0.1
+version: 0.1.1
 author: Mohamed kadhem mansour (moda20) <kadhem03@gmail.com>
 repository: https://github.com/moda20/flutter_file_meta_data
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.10.0"
 
 dependencies:
